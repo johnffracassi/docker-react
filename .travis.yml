@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+before-install:
+  - docker build -t johnffracassi/docker-react -f Dockerfile.dev .
+
+# -- --coverage allows npm run test to exit
+script:
+  - docker run johnffracassi/docker-react npm run test -- --coverage
+
