@@ -12,6 +12,7 @@ RUN npm run build
 # by starting this new phase from nginx and copying over
 # the build folder.
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 # default command for nginx is to start it, so we do not 
 # need to explicitly start it.
